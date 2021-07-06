@@ -1,6 +1,8 @@
 document.querySelector("#form").addEventListener("submit", (event) => {
     event.preventDefault();
-    updateAgenda ()
+    postAgenda ()
+    campoNome.value =""
+    campoTelefone.value =""
     
 })
 
@@ -93,13 +95,13 @@ async function postAgenda ()
 async function updateAgenda ()
 {
     try {
-        const apiColetada = await fetch (`https://sheetdb.io/api/v1/kmaxmkc0yg9ta/firstname/lika`, {
+        const apiColetada = await fetch (`https://sheetdb.io/api/v1/kmaxmkc0yg9ta/firstname/testando`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json'
             },
 
-            body: JSON.stringify({ data: { firstname: 'testando', telefone: '1234567889'  }}),
+            body: JSON.stringify({ data: { firstname: 'lika' }}),
         });
         const apiTransformada = await apiColetada.json()
         console.log(apiTransformada)
@@ -109,3 +111,6 @@ async function updateAgenda ()
         console.log(error)
     }
 }
+
+
+
